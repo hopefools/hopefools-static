@@ -1,10 +1,11 @@
 header {
   margin-top: 30px;
-}
-.social {
-  // margin-top: 30px;
-}
+  transition: all 0.4s ease 0s;
 
+  &.active {
+    // padding-right: 180px;
+  }
+}
 
 .social-list {
   list-style: none;
@@ -15,17 +16,32 @@ header {
     display: inline-block;
 
     .facebook {
-      background-color: @facebook;
+      color: @facebook;
+
+      &:hover {
+        color: #fff;
+        background-color: @facebook;
+      }
     }
     .youtube {
-      background-color: @youtube;
+      color: @youtube;
+
+      &:hover {
+        color: #fff;
+        background-color: @youtube;
+      }
     }
     .twitter {
-      background-color: @twitter;
+      color: @twitter;
+
+      &:hover {
+        color: #fff;
+        background-color: @twitter;
+      }
     }
 
     a {
-      color: #fff;
+      transition: background-color 350ms ease-in-out, color 200ms ease-in-out;
       border-radius: 50%;
       padding: 10px 7px;
     }
@@ -36,5 +52,73 @@ header {
   > a {
     border: 1px solid @gray-lighter;
     padding: 10px;
+  }
+}
+
+.sidebar-wrapper {
+  margin-right: -300px;
+  top: 0;
+  right: 0;
+  width: 300px;
+  background: @gray-light;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 999;
+  transition: all 0.4s ease 0s;
+
+  &.active {
+    right: 300px;
+  }
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 300px;
+  list-style: none;
+  margin: 0;
+  padding: 22px 0 0;
+
+  > li {
+    line-height: 40px;
+    text-indent: 20px;
+    > a {
+      display: block;
+      text-decoration: none;
+      color: @gray-lighter;
+
+      &:hover,
+      &:active {
+        background-color: @gray-dark;
+      }
+    }
+  }
+}
+
+.nav-down {
+  > a {
+    > img {
+      height: 70px;
+      width: 70px;
+      animation: bounce 2s infinite;
+    }
+    &:hover {
+      img {
+        animation: none;
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
   }
 }
