@@ -1,10 +1,10 @@
-header {
-  margin-top: 30px;
-  transition: all 0.4s ease 0s;
+.navbar-fixed-top {
+  background: @gray-lighter;
+}
 
-  &.active {
-    // padding-right: 180px;
-  }
+.fixed-top {
+  margin-top: 15px;
+  transition: all 0.4s ease 0s;
 }
 
 .social-list {
@@ -48,23 +48,16 @@ header {
   }
 }
 
-.nav-button {
-  > a {
-    border: 1px solid @gray-lighter;
-    padding: 10px;
-  }
-}
-
 .sidebar-wrapper {
   margin-right: -300px;
   top: 0;
   right: 0;
   width: 300px;
-  background: @gray-light;
+  background: @gray-dark;
   position: fixed;
   height: 100%;
   overflow-y: auto;
-  z-index: 999;
+  z-index: 1031;
   transition: all 0.4s ease 0s;
 
   &.active {
@@ -78,10 +71,10 @@ header {
   width: 300px;
   list-style: none;
   margin: 0;
-  padding: 22px 0 0;
+  padding: 0;
 
   > li {
-    line-height: 40px;
+    line-height: 50px;
     text-indent: 20px;
     > a {
       display: block;
@@ -90,7 +83,7 @@ header {
 
       &:hover,
       &:active {
-        background-color: @gray-dark;
+        background-color: @gray-light;
       }
     }
   }
@@ -101,7 +94,7 @@ header {
     > img {
       height: 70px;
       width: 70px;
-      animation: bounce 2s infinite;
+      animation: bounce 1.5s infinite;
     }
     &:hover {
       img {
