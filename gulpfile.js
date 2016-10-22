@@ -13,7 +13,7 @@
  *      8. InjectCSS instead of browser page reload.
  *
  * @author Jobayer Arman (@JobayerArman)
- * @version 1.2.1
+ * @version 1.3.0
  */
 
 /**
@@ -285,10 +285,6 @@ gulp.task( 'browser-sync', function() {
     // `false` Stop the browser from automatically opening.
     open: false,
 
-    // Inject CSS changes.
-    // Commnet it to reload browser for every CSS change.
-    injectChanges: true,
-
     // Console log connections
     logConnections: false,
 
@@ -306,18 +302,18 @@ gulp.task( 'default', gulpSequence('clean', 'render-html', 'styles', 'scripts', 
 
 /**
  * Run all the tasks sequentially
- * Use this task to development
+ * Use this task for development
  */
-gulp.task( 'serve', gulpSequence('render-html', 'styles', 'scripts', 'browser-sync', 'watch'));
+gulp.task( 'serve', gulpSequence('render-html', 'styles', 'scripts', 'watch'));
 
 /**
   * Watch Tasks.
   *
   * Watches for file changes and runs specific tasks.
   */
-gulp.task( 'watch', function() {
-  gulp.watch( watch.html, [ 'render-html', reload] );       // Render files and reload on HTML file changes.
-  gulp.watch( watch.styles, [ 'styles' ] );                 // Run LESS task on file changes.
-  gulp.watch( watch.scripts, [ 'scripts', reload ] );       // Reload on customJS file changes.
-  gulp.watch( watch.images, [ 'image:compress', reload ] ); // Reload on image file changes.
+gulp.task( 'watch', ['browser-sync'], function() {
+  gulp.watch( watch.styles, [ 'styles' ] );                               // Run LESS task on file changes.
+  gulp.watch( watch.html, [ 'render-html' ]).on("change", reload );       // Render files and reload on HTML file changes.
+  gulp.watch( watch.scripts, [ 'scripts' ] ).on("change", reload );       // Reload on customJS file changes.
+  gulp.watch( watch.images, [ 'image:compress' ] ).on("change", reload ); // Reload on image file changes.
 });
