@@ -6860,8 +6860,8 @@ section {
 .nav-down > a > img {
   height: 70px;
   width: 70px;
-  -webkit-animation: bounce 1.5s infinite;
-          animation: bounce 1.5s infinite;
+  -webkit-animation: bounce 1.8s infinite;
+          animation: bounce 1.8s infinite;
 }
 .nav-down > a:hover img {
   -webkit-animation: none;
@@ -6881,8 +6881,8 @@ section {
             transform: translateY(-30px);
   }
   60% {
-    -webkit-transform: translateY(-15px);
-            transform: translateY(-15px);
+    -webkit-transform: translateY(-18px);
+            transform: translateY(-18px);
   }
 }
 @keyframes bounce {
@@ -6899,8 +6899,8 @@ section {
             transform: translateY(-30px);
   }
   60% {
-    -webkit-transform: translateY(-15px);
-            transform: translateY(-15px);
+    -webkit-transform: translateY(-18px);
+            transform: translateY(-18px);
   }
 }
 
